@@ -1,0 +1,37 @@
+# config context path to "/" by setting an empty string
+server:
+  contextPath:
+  port: 8081
+# http://docs.spring.io/spring-boot/docs/current/reference/html/common-application-properties.html
+
+spring:
+  jackson:
+    serialization:
+      INDENT_OUTPUT: true
+  datasource:
+    url: jdbc:mysql://localhost:3306/macquarie?autoReconnect=true&useSSL=false
+    username: root
+    password: root
+    driver-class-name: com.mysql.jdbc.Driver
+      # Keep the connection alive if idle for a long time (needed in production)
+  jpa:
+    show-sql: true
+    hibernate:
+     ddl-auto: create-drop
+     #ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5Dialect
+
+authentication:
+  service:
+    url: http://www.mocky.io/v2/5d1c65b13400007200b5fd04
+
+jwt:
+  header: Authorization
+  secret: macquarieSecret
+  expiration: 604800
+  route:
+    authentication:
+      create: api/create/token
+      refresh: api/refresh/token
