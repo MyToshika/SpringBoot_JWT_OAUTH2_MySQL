@@ -13,7 +13,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.persistence.Transient;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.mytoshika.auth.model.CourseStatus;
@@ -48,12 +47,27 @@ public class Course {
 	@OneToMany(mappedBy = "course")
 	private List<CourseSectionContent> courseSectionContent;
 	
+	@JsonIgnore
+	@ManyToOne
+	@JoinColumn
+	private EnrollCourse enrollCourse;
 	
 	@ManyToOne
 	@JoinColumn
 	private InstructorInfo instructorInfo;
 
-
+	@ManyToOne
+	@JoinColumn
+	private StudentCourseNotification studentCourseNotification;
+	
+	@ManyToOne
+	@JoinColumn
+	private StudentPayment studentPayment;
+	
+	@ManyToOne
+	@JoinColumn
+	private StudentPaymentNotification studentPaymentNotification;
+	
 	public long getId() {
 		return id;
 	}
@@ -121,7 +135,36 @@ public class Course {
 		this.courseSectionContent = courseSectionContent;
 	}
 
-		
+	public EnrollCourse getEnrollCourse() {
+		return enrollCourse;
+	}
 
-	
+	public void setEnrollCourse(EnrollCourse enrollCourse) {
+		this.enrollCourse = enrollCourse;
+	}
+
+	public StudentCourseNotification getStudentCourseNotification() {
+		return studentCourseNotification;
+	}
+
+	public void setStudentCourseNotification(StudentCourseNotification studentCourseNotification) {
+		this.studentCourseNotification = studentCourseNotification;
+	}
+
+	public StudentPayment getStudentPayment() {
+		return studentPayment;
+	}
+
+	public void setStudentPayment(StudentPayment studentPayment) {
+		this.studentPayment = studentPayment;
+	}
+
+	public StudentPaymentNotification getStudentPaymentNotification() {
+		return studentPaymentNotification;
+	}
+
+	public void setStudentPaymentNotification(StudentPaymentNotification studentPaymentNotification) {
+		this.studentPaymentNotification = studentPaymentNotification;
+	}
+
 }

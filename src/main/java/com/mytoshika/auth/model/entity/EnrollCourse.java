@@ -14,13 +14,13 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.mytoshika.auth.model.EnrollStatus;
 
 
 @Entity
 @Table(name="enroll_course")
 public class EnrollCourse {
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name="enroll_id")
@@ -45,12 +45,10 @@ public class EnrollCourse {
 	@Column(name="direct_fee")
 	private String directFee;
 	
-	@JsonIgnore
 	@ManyToOne
 	@JoinColumn
-	private EnrollCourse enrollCourse;
+	private StudentPayment studentPayment;
 	
-
 	public long getEnrollId() {
 		return enrollId;
 	}
@@ -106,8 +104,13 @@ public class EnrollCourse {
 	public void setDirectFee(String directFee) {
 		this.directFee = directFee;
 	}
-	
-	
-	
+
+	public StudentPayment getStudentPayment() {
+		return studentPayment;
+	}
+
+	public void setStudentPayment(StudentPayment studentPayment) {
+		this.studentPayment = studentPayment;
+	}
 
 }

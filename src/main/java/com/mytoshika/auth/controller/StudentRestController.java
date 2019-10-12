@@ -1,5 +1,7 @@
 package com.mytoshika.auth.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -8,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import com.mytoshika.auth.model.EnrollCourseModel;
 import com.mytoshika.auth.model.Student;
+import com.mytoshika.auth.model.entity.EnrollCourse;
 import com.mytoshika.auth.model.entity.StudentInfo;
 import com.mytoshika.auth.service.EnrollCourseService;
 import com.mytoshika.auth.service.StudentRegisterService;
@@ -65,12 +68,9 @@ public class StudentRestController {
 	}
 	
 	@RequestMapping(value = "api/getenrollCourse", method = RequestMethod.GET)
-	public String getCourse(@RequestBody EnrollCourseModel enrollCourseModel) {
-		boolean getenrollCourse  = enrollCourseService.getenrollCourse(enrollCourseModel);
-		if(getenrollCourse) 
-			return "successMessage: ";  
-		else
-			return "failureMessage:  ";
+	public List<EnrollCourse> getCourse(@RequestBody EnrollCourseModel enrollCourseModel) {
+		List<EnrollCourse> getenrollCourse  = enrollCourseService.getenrollCourse(enrollCourseModel);
+			return getenrollCourse;  
 	}
 	
 	
