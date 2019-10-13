@@ -4,12 +4,12 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>com.mytoshika.auth</groupId>
-	<artifactId>mytoshika-auth</artifactId>
+	<groupId>com.codegyani.app</groupId>
+	<artifactId>codegyani-app</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>spring-boot-jwt-mysql</name>
+	<name>codegyani</name>
 	<description>Spring Boot, Spring security, JWT, MySQL</description>
 
 	<parent>
